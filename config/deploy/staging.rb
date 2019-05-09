@@ -70,6 +70,8 @@ set :env, 'staging'
 namespace :deploy do
   desc 'restart nginx'
   task :restart_nginx do
-    puts :env
+    on roles(:worker) do
+      puts :env
+    end
   end
 end

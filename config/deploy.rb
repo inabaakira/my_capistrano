@@ -2,7 +2,13 @@
 lock "~> 3.11.0"
 
 set :application, "my_capistrano"
-set :repo_url, "git@mygithub:inabaakira/my_capistrano.git"
+set :repo_url, "git@github.com:inabaakira/my_capistrano.git"
+
+set :ssh_options, {
+      user: 'inaba',
+      port: 22,
+      forward_agent: true
+    }
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
