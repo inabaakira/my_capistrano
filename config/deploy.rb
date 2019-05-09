@@ -9,6 +9,10 @@ set :ssh_options, {
       port: 22,
       forward_agent: true
     }
+set :rbenv_ruby_version, '2.6.3p62'
+set :rbenv_path, '/home/inaba/.rbenv'
+set :bundle_path, './vendor/bundle'
+set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
