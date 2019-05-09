@@ -65,13 +65,15 @@ server 'cerasus.inabaakira.org', user: 'inaba', roles: %{worker}
 set :deploy_to, '/home/inaba/my_capistrano'
 set :branch, 'master'
 set :user, 'inaba'
-set :env, 'staging'
+set :stage, 'staging'
 
 namespace :deploy do
   desc 'restart nginx'
   task :restart_nginx do
     on roles(:worker) do
-      puts :env
+      puts :stage
     end
   end
 end
+
+after "deploy:published", "restart_nginx"
